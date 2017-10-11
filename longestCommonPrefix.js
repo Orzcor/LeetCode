@@ -2,7 +2,7 @@
  * @param {string[]} strs
  * @return {string}
  */
-var longestCommonPrefix = function(strs) {
+/* var longestCommonPrefix = function(strs) {
     if(strs.length === 0)
         return ''
     let prefix = strs[0]
@@ -15,6 +15,20 @@ var longestCommonPrefix = function(strs) {
         }
     }
     return prefix
+}; */
+
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 0)
+        return ''
+
+    for(let i = 0, l = strs[0].length; i < l; i++){
+        let c = strs[0].charAt(i)
+        for(let j = 1, len = strs.length; j < len; j++){
+            if(i === strs[j].length || strs[j].charAt(i) !== c)
+                return strs[0].substring(0, i)
+        }
+    }
+    return strs[0]
 };
 
 console.log(longestCommonPrefix(['abc', 'abcxx', 'abccc', 'abcety']))
