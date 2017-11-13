@@ -11,11 +11,9 @@
  */
 var minDepth = function(root) {
     if(root === null) return 0
-    return depth(root)
+    
+    let left = minDepth(root.left),
+        right = minDepth(root.right)
+    
+    return (left === 0 || right === 0) ? left + right + 1 : Math.min(left, right) + 1
 };
-
-var depth = function(node) {
-    if(node === null) return 0
-
-    return Math.min(depth(node.left), depth(node.right)) + 1
-}
