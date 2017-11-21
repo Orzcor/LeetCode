@@ -3,17 +3,12 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-    let i = 1,
+    let result = 0,
         len = nums.length
-    while(i < len){
-        let index = nums.indexOf(nums[i])
-        if(index < i && index !== -1){
-            nums[i] = nums[i + 1]
-            len--
-        }else{
-            i++
-        }
+
+    for(let i = 0; i < len; i++){
+        result ^= nums[i]
     }
 
-    return i
+    return result
 };
